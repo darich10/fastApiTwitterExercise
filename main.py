@@ -1,7 +1,7 @@
 # Python
 from uuid import UUID
 from datetime import date, datetime
-from typing import Optional
+from typing import Optional, List
 
 # Pydantic
 from pydantic import BaseModel
@@ -10,6 +10,8 @@ from pydantic import Field
 
 # fastApi
 from fastapi import FastAPI
+from fastapi import status
+
 
 app = FastAPI()
 
@@ -61,3 +63,73 @@ async def root():
 @app.get("/hello/{name}")
 async def say_hello(name: str):
     return {"message": f"Hello {name}"}
+
+
+# Path Operations
+
+# # Users
+
+@app.post(
+    path="/signup",
+    response_model=User,
+    status_code=status.HTTP_201_CREATED,
+    summary="Register a User",
+    tags=["Users"]
+)
+def signup():
+    pass
+
+
+@app.post(
+    path="/login",
+    response_model=User,
+    status_code=status.HTTP_200_OK,
+    summary="Login a User",
+    tags=["Users"]
+)
+def login():
+    pass
+
+
+@app.get(
+    path="/users",
+    response_model=List[User],
+    status_code=status.HTTP_200_OK,
+    summary="Show all User",
+    tags=["Users"]
+)
+def show_all_users():
+    pass
+
+
+@app.get(
+    path="/users/{user_id}",
+    response_model=User,
+    status_code=status.HTTP_200_OK,
+    summary="Show a User",
+    tags=["Users"]
+)
+def show_user():
+    pass
+
+
+@app.delete(
+    path="/users/{user_id}",
+    response_model=User,
+    status_code=status.HTTP_200_OK,
+    summary="Delete a User",
+    tags=["Users"]
+)
+def delete_user():
+    pass
+
+
+@app.put(
+    path="/users/{user_id}",
+    response_model=User,
+    status_code=status.HTTP_200_OK,
+    summary="Update a User",
+    tags=["Users"]
+)
+def update_user():
+    pass
