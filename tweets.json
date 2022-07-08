@@ -1,3 +1,41 @@
 [
-
+  {
+    "tweetID": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "content": "string",
+    "created_at": "2022-07-07 23:58:21.344854",
+    "updated_at": "2022-07-08 04:58:30.737000+00:00",
+    "by": {
+      "userID": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "email": "user@example.com",
+      "first_name": "string",
+      "last_name": "string",
+      "birth_date": "2022-07-08"
+    }
+  },
+  {
+    "tweetID": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "content": "esto es una prueba",
+    "created_at": "2022-07-07 23:58:21.344854",
+    "updated_at": "2022-07-08 04:58:30.737000+00:00",
+    "by": {
+      "userID": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "email": "dante@gmail.com",
+      "first_name": "Pedro",
+      "last_name": "Paramo",
+      "birth_date": "2022-07-08"
+    }
+  },
+  {
+    "tweetID": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "content": "esto es una prueba2",
+    "created_at": "2022-07-07 23:58:21.344854",
+    "updated_at": "2022-07-08 04:58:30.737000+00:00",
+    "by": {
+      "userID": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "email": "dante2@gmail.com",
+      "first_name": "Pedro2",
+      "last_name": "Paramo2",
+      "birth_date": "2022-07-08"
+    }
+  }
 ]

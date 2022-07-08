@@ -52,7 +52,7 @@ class UserRegister(User):
 
 
 class Tweet(BaseModel):
-    tweet_id: UUID = Field(...)
+    tweetID: UUID = Field(...)
     content: str = Field(
         ...,
         min_length=1,
@@ -197,8 +197,36 @@ async def home():
     summary="Post a tweets",
     tags=["Tweets"]
 )
-async def post_tweet():
-    pass
+async def post_tweet(tweet: Tweet = Body(...)):
+    """
+    Post Tweet
+
+    This operation path posrt a tweet in the app
+
+    Parameters:
+        - Request body parameter
+            - tweet: Tweet
+
+    Returns a json with the tweet information posted.
+        - tweet_id: UUID
+        - content: str
+        - created_at: datetime
+        - updated_at: Optional[datetime]
+        - by: User
+    """
+    with open("tweets.json", "r+", encoding="utf-8") as f:
+        results = json.loads(f.read())
+        tweet_dict = tweet.dict()
+        tweet_dict["tweetID"] = str(tweet_dict["tweetID"])
+        tweet_dict["created_at"] = str(tweet_dict["created_at"])
+        tweet_dict["by"]["userID"] = str(tweet_dict["by"]["userID"])
+        tweet_dict["by"]["birth_date"] = str(tweet_dict["by"]["birth_date"])
+        if tweet_dict["updated_at"]:
+            tweet_dict["updated_at"] = str(tweet_dict["updated_at"])
+        results.append(tweet_dict)
+        f.seek(0)
+        f.write(json.dumps(results))
+        return tweet
 
 
 # # # Show a tweet
